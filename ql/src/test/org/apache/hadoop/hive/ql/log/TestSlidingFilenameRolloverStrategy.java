@@ -83,7 +83,7 @@ public class TestSlidingFilenameRolloverStrategy {
     // Delete any stale log files left around from previous failed tests
     deleteLogFiles(parent, fileName);
 
-    Logger logger = LogManager.getLogger(LineageLogger.class);
+    Logger logger = LogManager.getLogger(.class);
 
     // Does the logger config look correct?
     org.apache.logging.log4j.core.Logger coreLogger =

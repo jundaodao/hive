@@ -65,6 +65,7 @@ public class CreateDatabaseOperation extends DDLOperation<CreateDatabaseDesc> {
       } else { // should never be here
         throw new HiveException("Unsupported database type " + database.getType() + " for " + database.getName());
       }
+      // todo 执行创建库命令
       context.getDb().createDatabase(database, desc.getIfNotExists());
     } catch (AlreadyExistsException ex) {
       //it would be better if AlreadyExistsException had an errorCode field....

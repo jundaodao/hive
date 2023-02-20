@@ -62,12 +62,15 @@ public class CreateDatabaseAnalyzer extends BaseSemanticAnalyzer {
         ifNotExists = true;
         break;
       case HiveParser.TOK_DATABASECOMMENT:
+        // todo 获取建库 comment
         comment = unescapeSQLString(childNode.getChild(0).getText());
         break;
       case HiveParser.TOK_DATABASEPROPERTIES:
+        // todo 建库的 props
         props = getProps((ASTNode) childNode.getChild(0));
         break;
       case HiveParser.TOK_DATABASELOCATION:
+        // todo 建库的 location
         locationUri = unescapeSQLString(childNode.getChild(0).getText());
         outputs.add(toWriteEntity(locationUri));
         break;
@@ -78,6 +81,7 @@ public class CreateDatabaseAnalyzer extends BaseSemanticAnalyzer {
       case HiveParser.TOK_DATACONNECTOR:
         type = DatabaseType.REMOTE.name();
         ASTNode nextNode = (ASTNode) root.getChild(i);
+        // todo 连接名称
         connectorName = ((ASTNode)nextNode).getChild(0).getText();
         DataConnector connector = getDataConnector(connectorName, true);
         if (connector == null) {

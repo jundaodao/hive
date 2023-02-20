@@ -16,7 +16,8 @@
  * limitations under the License.
  */
 
-package org.apache.hadoop.hive.ql.hooks;
+
+
 
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.collect.Lists;
@@ -36,6 +37,7 @@ import org.apache.hadoop.hive.ql.exec.ColumnInfo;
 import org.apache.hadoop.hive.ql.exec.SelectOperator;
 import org.apache.hadoop.hive.ql.exec.TaskRunner;
 import org.apache.hadoop.hive.ql.exec.Utilities;
+import org.apache.hadoop.hive.ql.hooks.HookContext;
 import org.apache.hadoop.hive.ql.hooks.HookContext.HookType;
 import org.apache.hadoop.hive.ql.hooks.LineageInfo.BaseColumnInfo;
 import org.apache.hadoop.hive.ql.hooks.LineageInfo.Dependency;
@@ -79,7 +81,7 @@ public class LineageLogger implements ExecuteWithHookContext {
   /**
    * An edge in lineage.
    */
-  @VisibleForTesting
+  @VisibleForTestingLineageLogger
   public static final class Edge {
 
     /**

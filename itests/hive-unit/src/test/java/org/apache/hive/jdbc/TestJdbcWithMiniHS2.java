@@ -220,7 +220,7 @@ public class TestJdbcWithMiniHS2 {
     conf.setBoolVar(ConfVars.HIVESTATSCOLAUTOGATHER, false);
     // store post-exec hooks calls so we can look at them later
     conf.setVar(ConfVars.POSTEXECHOOKS, ReadableHook.class.getName() + "," +
-        LineageLogger.class.getName());
+            LineageLogger.class.getName());
     MiniHS2.Builder builder = new MiniHS2.Builder().withConf(conf).cleanupLocalDirOnStartup(false);
     if (httpMode) {
       builder = builder.withHTTPTransport();
