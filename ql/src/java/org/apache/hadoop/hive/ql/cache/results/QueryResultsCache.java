@@ -331,6 +331,7 @@ public final class QueryResultsCache {
     }
 
     public Stream<String> getTableNames() {
+      // todo 从 queryInfo 获取 inputs 的表名信息
       return queryInfo.getInputs().stream()
           .filter(readEntity -> readEntity.getType() == Type.TABLE)
           .map(readEntity -> readEntity.getTable().getFullyQualifiedName());
@@ -367,6 +368,7 @@ public final class QueryResultsCache {
 
     String currentCacheDirName = "results-" + UUID.randomUUID().toString();
     cacheDirPath = new Path(rootCacheDir, currentCacheDirName);
+    // todo 获取文件执行对象
     FileSystem fs = cacheDirPath.getFileSystem(conf);
     FsPermission fsPermission = new FsPermission("700");
     fs.mkdirs(cacheDirPath, fsPermission);

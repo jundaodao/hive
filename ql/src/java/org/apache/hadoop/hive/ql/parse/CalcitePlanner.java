@@ -352,7 +352,7 @@ import static org.apache.hadoop.hive.ql.metadata.HiveRelOptMaterialization.Rewri
 import static org.apache.hadoop.hive.ql.metadata.HiveRelOptMaterialization.RewriteAlgorithm.NON_CALCITE;
 import static org.apache.hadoop.hive.ql.optimizer.calcite.rules.views.HiveMaterializedViewUtils.extractTable;
 
-
+// todo 从 calcite 中获取执行计划，如有必要就将其都看完
 public class CalcitePlanner extends SemanticAnalyzer {
 
   /**

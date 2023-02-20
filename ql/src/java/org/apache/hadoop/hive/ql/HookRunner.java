@@ -133,6 +133,7 @@ public class HookRunner {
       throws Exception {
     List<QueryLifeTimeHook> queryHooks = hooks.getHooks(QUERY_LIFETIME_HOOKS);
     if (!queryHooks.isEmpty()) {
+      // todo 生成HookContext的构造方法
       HookContext hookContext = new PrivateHookContext(driverContext, analyzerContext);
       hookContext.setException(compileException);
 

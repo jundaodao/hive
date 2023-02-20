@@ -33,6 +33,7 @@ public final class AnalyzeCommandUtils {
     throw new UnsupportedOperationException("AnalyzeCommandUtils should not be instantiated");
   }
 
+// todo 解析获取是否是分区表
   public static boolean isPartitionLevelStats(ASTNode tree) {
     boolean isPartitioned = false;
     ASTNode child = (ASTNode) tree.getChild(0);

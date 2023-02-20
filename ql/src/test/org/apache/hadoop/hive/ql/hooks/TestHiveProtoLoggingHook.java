@@ -90,6 +90,7 @@ public class TestHiveProtoLoggingHook {
     queryPlan.setOutputs(new HashSet<>());
 
     PerfLogger perf = PerfLogger.getPerfLogger(conf, true);
+    // todo 构建 hookcontext 的测试方法
     context = new HookContext(queryPlan, state, null, "test_user", "192.168.10.10",
         "hive_addr", "test_op_id", "test_session_id", "test_thread_id", true, perf, null);
   }

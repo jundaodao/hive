@@ -263,6 +263,7 @@ public class LlapOutputFormatService {
 
     @Override
     public void initChannel(SocketChannel ch) throws Exception {
+      // todo netty 的用法
       ch.pipeline().addLast(
           new ProtobufVarint32FrameDecoder(),
           new ProtobufDecoder(LlapOutputSocketInitMessage.getDefaultInstance()),

@@ -52,6 +52,7 @@ import com.google.common.annotations.VisibleForTesting;
  * sql. Later we can expand to add join tables etc.
  *
  */
+// todo 这个类就是血缘信息的类，表血缘可以直接从他拿到
 public class LineageInfo implements SemanticNodeProcessor {
 
   /**

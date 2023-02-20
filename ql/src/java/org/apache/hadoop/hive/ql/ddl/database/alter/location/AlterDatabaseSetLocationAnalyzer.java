@@ -36,6 +36,7 @@ public class AlterDatabaseSetLocationAnalyzer extends AbstractAlterDatabaseAnaly
 
   @Override
   public void analyzeInternal(ASTNode root) throws SemanticException {
+    // todo 从解析树获取库名
     String databaseName = getUnescapedName((ASTNode) root.getChild(0));
     String newLocation = unescapeSQLString(root.getChild(1).getText());
 

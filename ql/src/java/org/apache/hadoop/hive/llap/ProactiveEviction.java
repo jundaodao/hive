@@ -70,6 +70,7 @@ public final class ProactiveEviction {
   }
 
   private static final ExecutorService EXECUTOR = Executors.newSingleThreadExecutor(
+          // todo 异步线程的命名方式
       new ThreadFactoryBuilder().setNameFormat("Proactive-Eviction-Requester").setDaemon(true).build());
 
   private ProactiveEviction() {

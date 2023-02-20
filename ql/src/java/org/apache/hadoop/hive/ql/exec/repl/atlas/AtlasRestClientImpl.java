@@ -67,6 +67,7 @@ public class AtlasRestClientImpl extends RetryingClientTimeBased implements Atla
   }
 
   private <T> T runWithTimeout(Callable<T> callable, long timeout, TimeUnit timeUnit) throws Exception {
+    // todo 异步线程的使用方式
     final ExecutorService executor = Executors.newSingleThreadExecutor();
     final Future<T> future = executor.submit(callable);
     executor.shutdown();
@@ -98,6 +99,7 @@ public class AtlasRestClientImpl extends RetryingClientTimeBased implements Atla
     });
   }
 
+  //todo 将数据导入 atlas
   public AtlasImportResult importData(AtlasImportRequest request, AtlasReplInfo atlasReplInfo) throws Exception {
     AtlasImportResult defaultResult = getDefaultAtlasImportResult(request);
     Path exportFilePath = new Path(atlasReplInfo.getStagingDir(), ReplUtils.REPL_ATLAS_EXPORT_FILE_NAME);
@@ -114,6 +116,7 @@ public class AtlasRestClientImpl extends RetryingClientTimeBased implements Atla
         try {
           SecurityUtils.reloginExpiringKeytabUser();
           is = fs.open(exportFilePath);
+          // todo 通过 atlas客户端导入数据
           return clientV2.importData(request, is);
         } finally {
           if (is != null) {

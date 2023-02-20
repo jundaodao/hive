@@ -56,6 +56,7 @@ import org.slf4j.LoggerFactory;
  * ColumnStatsSemanticAnalyzer.
  * Handles semantic analysis and rewrite for gathering column statistics both at the level of a
  * partition and a table. Note that table statistics are implemented in SemanticAnalyzer.
+ * todo 列相关的信息
  *
  */
 public class ColumnStatsSemanticAnalyzer extends SemanticAnalyzer {

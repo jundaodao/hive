@@ -97,6 +97,7 @@ public class WritableByteChannelAdapter implements WritableByteChannel {
     ArrowByteBufAllocator abba = new ArrowByteBufAllocator(allocator);
     ByteBuf buf = abba.buffer(size);
     buf.writeBytes(src);
+    // netty 发送数据的过程
     chc.writeAndFlush(buf).addListener(writeListener);
     return size;
   }

@@ -47,6 +47,7 @@ import org.apache.thrift.TException;
  */
 public final class SynchronizedMetaStoreClient {
 
+  // todo 跟 hive rpc 请求的客户端
   private final IMetaStoreClient client;
 
   public SynchronizedMetaStoreClient(IMetaStoreClient client) {

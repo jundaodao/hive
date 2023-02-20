@@ -114,6 +114,7 @@ public class LineageLogger implements ExecuteWithHookContext {
      * A type in lineage.
      */
     public static enum Type {
+      // todo 类型是字段或者表
       COLUMN, TABLE
     }
     private Type type;
@@ -165,6 +166,7 @@ public class LineageLogger implements ExecuteWithHookContext {
   @Override
   public void run(HookContext hookContext) {
     assert(hookContext.getHookType() == HookType.POST_EXEC_HOOK);
+    // todo 从 hookcontext 中获取执行计划
     QueryPlan plan = hookContext.getQueryPlan();
     Index index = hookContext.getIndex();
     SessionState ss = SessionState.get();
@@ -225,6 +227,7 @@ public class LineageLogger implements ExecuteWithHookContext {
           // which can be different from the normal hive.log.
           // For example, using NoDeleteRollingFileAppender to
           // log to some file with different rolling policy.
+          // todo 一步步获取到了字段血缘和表血缘
           LOG.info(lineage);
         }
       } catch (Throwable t) {

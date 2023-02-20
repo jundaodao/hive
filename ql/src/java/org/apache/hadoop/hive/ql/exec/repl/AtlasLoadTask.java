@@ -158,6 +158,7 @@ public class AtlasLoadTask extends Task<AtlasLoadWork> implements Serializable {
 
   private int importAtlasMetadata(AtlasReplInfo atlasReplInfo) throws Exception {
     AtlasRequestBuilder atlasRequestBuilder = new AtlasRequestBuilder();
+    // todo 构建 atlas 结构体
     AtlasImportRequest importRequest = atlasRequestBuilder.createImportRequest(
             atlasReplInfo.getSrcDB(), atlasReplInfo.getTgtDB(),
             atlasReplInfo.getSrcCluster(), atlasReplInfo.getTgtCluster(),
